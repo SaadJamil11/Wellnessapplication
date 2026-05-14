@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+  }
+
+  .dark {
+    --bg-primary: #111827;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    /* Safe area handling */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    /* Overscroll behavior for mobile feel */
+    overscroll-behavior: none;
+  }
+}
+
+@layer utilities {
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Keep text content selectable */
+  .text-selectable {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}
+
+/* Apply un-selectable and touch manipulation to interactive elements globally */
+button,
+a,
+nav,
+.interactive-icon {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
